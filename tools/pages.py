@@ -45,25 +45,6 @@ PRIVACY_COMMON = [
 ]
 
 GAMES = [
-    dict(file="aha.html", name="Aha! Brain Puzzles", tag="Little puzzles with a clever twist", icon="img/aha-icon.svg",
-         privacy="privacy.html", terms="terms.html", qa=[
-        ("Stuck on a puzzle?", "Tap <b>Hint</b> for a gentle nudge; a second hint shows the answer. You can also tap <b>Ask someone for help</b> to send the puzzle to a friend."),
-        ("Bought something on another phone?", "Sign in with the same Apple Account, then open the shop or Settings and tap <b>Restore purchases</b>. Stage packs, “Everything” and special stages come back; lamp packs are used up and don’t."),
-        ("A purchase went wrong?", f"Payments are handled by Apple. You can ask for a refund at {REFUND}."),
-    ], privacy_lines=[
-        "Anonymous play statistics (Google Analytics for Firebase, without the advertising identifier) help us improve the puzzles.",
-        "If a grown-up chooses <b>Under 13</b> in Settings, the game sends no statistics and shows no ads.",
-    ]),
-    dict(file="cozy.html", name="Cozy Puzzles - 4 Seasons", tag="Jigsaws of the world’s loveliest places", icon="img/cozy-icon.png",
-         privacy="cozy-privacy.html", terms="cozy-terms.html", qa=[
-        ("Can’t find where a piece goes?", "Hold the eye to see the whole picture, or turn on the faint picture on the board. The edge and colour filters keep the piece tray tidy, and a wrong piece stays loose so you always know what fits."),
-        ("How do I open more puzzles?", "The first puzzle of every season is free; solve one to open the next. You can also open a whole season at once in the shop. There are no subscriptions."),
-        ("Bought something on another phone?", "Sign in with the same Apple Account and tap <b>Restore purchases</b> in the shop. Seasons you opened come back; hints you used up don’t."),
-        ("A purchase went wrong?", f"Payments are handled by Apple. You can ask for a refund at {REFUND}."),
-    ], privacy_lines=[
-        "No gameplay statistics or analytics are collected.",
-        "Photos you turn into puzzles stay on your device and are never uploaded.",
-    ], credits=True),
     dict(file="antfarm.html", name="Ant Farm: Sort Puzzle", tag="Cute ants, fruity sort puzzles", icon="img/antfarm-icon.png",
          privacy="antfarm-privacy.html", terms="antfarm-terms.html", qa=[
         ("Stuck on a level?", "Plan your taps before you start: the shelf only has five spots. A fruit with nowhere to go waits on the shelf and hops into its chamber as soon as there’s room. Boosters help on the hardest levels."),
@@ -83,6 +64,25 @@ GAMES = [
     ], privacy_lines=[
         "Your progress is saved on your device and in your own iCloud account; we never receive it.",
         "Anonymous gameplay statistics (Google Firebase, without the advertising identifier) help us improve the levels.",
+    ]),
+    dict(file="cozy.html", name="Cozy Puzzles - 4 Seasons", tag="Jigsaws of the world’s loveliest places", icon="img/cozy-icon.png",
+         privacy="cozy-privacy.html", terms="cozy-terms.html", qa=[
+        ("Can’t find where a piece goes?", "Hold the eye to see the whole picture, or turn on the faint picture on the board. The edge and colour filters keep the piece tray tidy, and a wrong piece stays loose so you always know what fits."),
+        ("How do I open more puzzles?", "The first puzzle of every season is free; solve one to open the next. You can also open a whole season at once in the shop. There are no subscriptions."),
+        ("Bought something on another phone?", "Sign in with the same Apple Account and tap <b>Restore purchases</b> in the shop. Seasons you opened come back; hints you used up don’t."),
+        ("A purchase went wrong?", f"Payments are handled by Apple. You can ask for a refund at {REFUND}."),
+    ], privacy_lines=[
+        "Anonymous play statistics (Google Firebase, without the advertising identifier) help us improve the puzzles. Your photos are never part of them.",
+        "Photos you turn into puzzles stay on your device and are never uploaded.",
+    ], credits=True),
+    dict(file="aha.html", name="Aha! Brain Puzzles", tag="Little puzzles with a clever twist", icon="img/aha-icon.svg",
+         privacy="privacy.html", terms="terms.html", qa=[
+        ("Stuck on a puzzle?", "Tap <b>Hint</b> for a gentle nudge; a second hint shows the answer. You can also tap <b>Ask someone for help</b> to send the puzzle to a friend."),
+        ("Bought something on another phone?", "Sign in with the same Apple Account, then open the shop or Settings and tap <b>Restore purchases</b>. Stage packs, “Everything” and special stages come back; lamp packs are used up and don’t."),
+        ("A purchase went wrong?", f"Payments are handled by Apple. You can ask for a refund at {REFUND}."),
+    ], privacy_lines=[
+        "Anonymous play statistics (Google Analytics for Firebase, without the advertising identifier) help us improve the puzzles.",
+        "If a grown-up chooses <b>Under 13</b> in Settings, the game sends no statistics and shows no ads.",
     ]),
 ]
 
