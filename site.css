@@ -26,7 +26,7 @@ img { max-width: 100%; }
   padding-top: env(safe-area-inset-top, 0px); }
 .top .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px 24px; padding-block: 14px 12px; }
 .brand { display: flex; align-items: center; gap: 14px; color: var(--ink); text-decoration: none; }
-.brand img { width: 52px; height: 52px; filter: drop-shadow(0 6px 14px rgba(239,93,143,.35)); transition: transform .3s; }
+.brand img { width: 56px; height: 56px; filter: drop-shadow(0 6px 14px rgba(63,191,176,.35)); transition: transform .3s; }
 .brand:hover img { transform: rotate(-8deg) scale(1.05); }
 .brand b { display: block; font: 600 34px/1 var(--display); letter-spacing: .01em; }
 .brand small { display: block; margin-top: 6px; font: 800 12px/1 var(--body); letter-spacing: .26em; text-transform: uppercase; color: var(--ink-3); }

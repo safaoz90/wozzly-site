@@ -23,7 +23,7 @@ HEAD = """<!doctype html>
 </head>
 <body>
 <header class="top"><div class="wrap">
-  <a class="brand" href="./"><img src="img/wozzly.svg" alt=""><span><b>Wozzly</b><small>Calm &amp; cheerful games</small></span></a>
+  <a class="brand" href="./"><img src="img/mochi.png" alt="Mochi, the Wozzly mascot"><span><b>Wozzly</b><small>Calm &amp; cheerful games</small></span></a>
   <nav class="menu" aria-label="Sections">
     <a href="./#games" class="on">Games</a><a href="./#featured">Featured</a><a href="./#why">Why Wozzly</a><a href="./#press">Press</a><a href="./#contact">Contact</a>
   </nav>
