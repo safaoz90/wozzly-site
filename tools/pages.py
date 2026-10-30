@@ -55,7 +55,7 @@ GAMES = [
         "Your progress is saved on your device and in your own iCloud account; we never receive it.",
         "Anonymous gameplay statistics (Google Firebase, without the advertising identifier) help us improve the levels.",
     ]),
-    dict(file="messenger.html", name="Messenger: Last Warning", tag="Tower defense with a story", icon="img/messenger-icon.png",
+    dict(file="messenger.html", name="Last Warning: Tower Defense", tag="Cute aliens, a story you won’t see coming", icon="img/messenger-icon.png",
          privacy="messenger-privacy.html", terms="messenger-terms.html", qa=[
         ("Stuck on a level?", "Build near the bends of the path, where enemies stay in range longest, and upgrade your best buildings with crystals. Boosters (Crystal Rush, Freeze, Overclock, Airstrike) help on the hardest waves."),
         ("Out of lives?", "Lives grow back over time. You can also refill them with coins, or watch an optional video for one."),
