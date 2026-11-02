@@ -79,6 +79,13 @@ h3 { font-size: 23px; line-height: 1.2; }
 .soon { display: inline-flex; padding: 10px 16px; border-radius: 14px; background: color-mix(in srgb, var(--c) 18%, transparent); color: var(--c);
   font: 600 16px/1 var(--display); }
 
+/* ---- videos: the games' short clips, phone-shaped, a row of four (two on tablets, a swipe row on phones) */
+.clips { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; margin-top: 22px; }
+.clip { --c: var(--coral); margin: 0; display: grid; gap: 10px; }
+.clip video { display: block; width: 100%; aspect-ratio: 9/16; object-fit: cover; border-radius: 22px; background: var(--card);
+  box-shadow: 0 12px 26px rgba(0,0,0,.4), 0 0 0 3px color-mix(in srgb, var(--c) 55%, transparent); }
+.clip figcaption { font: 800 15px/1.3 var(--body); color: var(--ink-2); text-align: center; }
+
 /* ---- featured */
 .feature { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); gap: 32px; align-items: center; margin-top: 26px; padding: clamp(22px, 4vw, 40px);
   border-radius: 32px; background: linear-gradient(135deg, #2c2758, #1f1c3f); border: 1px solid var(--line); }
@@ -125,6 +132,7 @@ footer a { color: var(--ink-2); text-decoration: none; margin-right: 14px; }
   .hero, .feature { grid-template-columns: minmax(0, 1fr); }
   .icons { max-width: 280px; grid-row: 1; }
   .why { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .clips { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (max-width: 640px) {
   html { scroll-padding-top: 170px; }
@@ -132,4 +140,6 @@ footer a { color: var(--ink-2); text-decoration: none; margin-right: 14px; }
   .brand img { width: 44px; height: 44px; } .brand b { font-size: 30px; }
   .menu { margin: 0 -14px; } .menu a { font-size: 16px; padding: 11px 14px; }
   .game header img { width: 70px; height: 70px; }
+  .clips { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 10px; }
+  .clip { flex: none; width: 62%; scroll-snap-align: start; }
 }
