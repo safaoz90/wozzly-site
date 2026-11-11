@@ -402,7 +402,7 @@ if (S.goldPulse < 0.2) S.goldPulse = 0.55;
 if (e.kind === "brute") { S.freeze = 0.07; S.shake = Math.max(S.shake, 0.18); S.kick = Math.max(S.kick, 0.04); burst(x, ly, "#ffffff", 14, 420); }
 if (S.streak === 5 || S.streak === 10) { burst(x, ly - 60, "#ffd23f", S.streak === 10 ? 26 : 16, 380); S.shake = Math.max(S.shake, 0.1); S.kick = Math.max(S.kick, S.streak === 10 ? 0.04 : 0.025); }
 if (S.nextWave >= WAVES.length && !S.spawns.length && S.hearts > 0 && !S.enemies.some((o) => o !== e && o.hp > 0)) {
-S.slowmo = 0.6; S.focus = { x, y: ly, k: 1.3, until: S.rt + 0.8 }; S.shake = Math.max(S.shake, 0.2);
+S.slowmo = 0.6; S.focus = { x, y: ly, k: 1.3, until: S.rt + 0.8 }; S.shake = Math.max(S.shake, 0.08);
 burst(x, ly, "#ffffff", 26, 460); burst(x, ly, "#ffd23f", 20, 380);
 S.fx.push({ type: "ring", x, y, t0: S.t, r: cellW(gr) * 1.6, col: "255,236,140" });
 }
@@ -420,7 +420,7 @@ if (S.hearts <= 0) { S.hearts = 0; lose(); return; }
 if (!S.saidLeak) { S.saidLeak = true; say(T.hold, 0); }
 else if (S.hearts === 1 && !S.saidLast) { S.saidLast = true; say(T.last, 0); }
 }
-function lose() { if (S.phase !== "play") return; sfx("lose"); S.phase = "lost"; S.endT = S.t; S.sel = null; S.caption = null; if (J) { S.shake = 0.3; S.vig = 1; } }
+function lose() { if (S.phase !== "play") return; sfx("lose"); S.phase = "lost"; S.endT = S.t; S.sel = null; S.caption = null; if (J) { S.shake = 0.12; S.vig = 1; } }
 const CHAIN = [
 ["b", [2, 5], "gun"], ["b", [3, 8], "gun"], ["u", [2, 5]], ["b", [5, 8], "gun"], ["u", [4, 3]],
 ["b", [4, 6], "heavy"], ["b", [1, 8], "emit"], ["u", [3, 8]], ["b", [0, 6], "gun"], ["u", [5, 8]], ["u", [1, 8]],
@@ -552,7 +552,6 @@ S.fx.push({ type: "ring", x, y, t0: S.t, r: cellW(sh.r) * sh.sp * 1.1, col: "255
 S.fx.push({ type: "boom", x, y: y - 20, t0: S.t, r: cellW(sh.r) * 0.75 });
 return false;
 });
-S.shake = Math.max(0, S.shake - dt);
 if (S.nextWave >= WAVES.length && !S.spawns.length && !S.enemies.length && !S.shells.length && S.hearts > 0) win();
 }
 const menuButtons = []; // filled while drawing: {x,y,r,act}
@@ -1087,7 +1086,6 @@ for (let i = 0; i < stars; i++) if (!S.landed[i] && t >= 0.25 + i * 0.22 + 0.12)
 S.landed[i] = true; const [dx, dy] = [[-275, -330], [0, -385], [275, -330]][i];
 sfx("kill", 0, 1.25 + i * 0.22); burst(W0 / 2 + dx, cy + dy, "#ffd23f", 18, 520); burst(W0 / 2 + dx, cy + dy, "#ffffff", 10, 380);
 S.fx.push({ type: "pop", x: W0 / 2 + dx, y: cy + dy, t0: S.t, col: "255,226,130" });
-S.shake = Math.max(S.shake, 0.07);
 if (i === 2) confetti(70);
 }
 }
@@ -1157,6 +1155,7 @@ S.cam.k += (want - S.cam.k) * (1 - Math.exp(-rd * (f ? 9 : 4.5)));
 if (!f && Math.abs(S.cam.k - 1) < 0.002) { S.cam.k = 1; S.cam.x = W0 / 2; S.cam.y = CENTER_Y; }
 S.kick *= Math.exp(-rd * 13); if (S.kick < 0.001) S.kick = 0;
 S.vig = Math.max(0, S.vig - rd * 1.5);
+S.shake = Math.max(0, S.shake - rd);   // (in real time, and also on the end cards: it used to go on for ever there)
 }
 ctx.setTransform(1, 0, 0, 1, 0, 0);
 ctx.fillStyle = "#0d1a3a"; ctx.fillRect(0, 0, cv.width, cv.height);
