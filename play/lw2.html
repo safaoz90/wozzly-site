@@ -233,7 +233,7 @@ lastInput: 0, endShown: false, stars: 0,
 rt: 0, later: [], cam: { k: 1, x: W0 / 2, y: CENTER_Y }, kick: 0, freeze: 0, slowmo: 0, vig: 0, focus: null, goldShown: START_GOLD,
 conf: [], sparks: [], landed: [false, false, false],
 };
-if (J) { const [fx, fy] = proj(4.6, 2.1); S.cam = { k: 1.34, x: fx, y: fy }; }   // opens close on the first cannon at work
+if (J) { const [fx, fy] = proj(4.6, 2.1); S.cam = { k: zoomMax(1.34), x: fx, y: fy }; }   // opens close on the first cannon at work
 S.nextWave = 0; queueWave();   // wave 1 (already on the road)
 S.spawns.sort((a, b) => a.t - b.t);
 S.towers[key(...PREBUILT)] = { kind: "gun", c: PREBUILT[0], r: PREBUILT[1], tier: 0, cd: 0, born: -10, ang: 0, flash: 0, pre: true };
@@ -402,7 +402,7 @@ if (S.goldPulse < 0.2) S.goldPulse = 0.55;
 if (e.kind === "brute") { S.freeze = 0.07; S.shake = Math.max(S.shake, 0.18); S.kick = Math.max(S.kick, 0.04); burst(x, ly, "#ffffff", 14, 420); }
 if (S.streak === 5 || S.streak === 10) { burst(x, ly - 60, "#ffd23f", S.streak === 10 ? 26 : 16, 380); S.shake = Math.max(S.shake, 0.1); S.kick = Math.max(S.kick, S.streak === 10 ? 0.04 : 0.025); }
 if (S.nextWave >= WAVES.length && !S.spawns.length && S.hearts > 0 && !S.enemies.some((o) => o !== e && o.hp > 0)) {
-S.slowmo = 0.6; S.focus = { x, y: ly, k: 1.3, until: S.rt + 0.8 }; S.shake = Math.max(S.shake, 0.08);
+S.slowmo = 0.6; S.focus = { x, y: ly, k: zoomMax(1.3), until: S.rt + 0.8 }; S.shake = Math.max(S.shake, 0.08);
 burst(x, ly, "#ffffff", 26, 460); burst(x, ly, "#ffd23f", 20, 380);
 S.fx.push({ type: "ring", x, y, t0: S.t, r: cellW(gr) * 1.6, col: "255,236,140" });
 }
@@ -558,6 +558,7 @@ const menuButtons = []; // filled while drawing: {x,y,r,act}
 let ctaRect = null, endButtons = [], muteRect = null;
 function toWorld(px, py) { return [(px - ox) / sc, (py - oy) / sc]; }
 const camK = () => S.cam.k + S.kick;
+function zoomMax(k) { return Math.max(1, Math.min(k, AJ.K / (sc * DPR))); }
 function boardOf(x, y) { const k = camK(); return [(x - S.cam.x) / k + S.cam.x, (y - S.cam.y) / k + S.cam.y]; }   // screen-space world -> the zoomed board
 function boardTo(x, y) { const k = camK(); return [(x - S.cam.x) * k + S.cam.x, (y - S.cam.y) * k + S.cam.y]; }
 function cta() {
